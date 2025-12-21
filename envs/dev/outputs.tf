@@ -25,7 +25,3 @@ output "bastion_public_ip" {
 output "bastion_private_ip" {
   value = module.bastion_vm.private_ip
 }
-
-output "mongodb_connection_string" {
-  value = module.mongodb.connection_string_private_srv
-}

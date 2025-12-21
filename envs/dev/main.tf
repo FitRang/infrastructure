@@ -33,15 +33,3 @@ module "bastion_vm" {
   subnet_id   = module.vpc.subnet_id
   vm_name     = "fitrang-bastion"
 }
-
-module "mongodb" {
-  source = "../../modules/mongodb"
-  project_id = var.project_id
-
-  mongodb_atlas_api_pub_key = var.mongodb_atlas_api_pub_key
-  mongodb_atlas_api_pri_key = var.mongodb_atlas_api_pri_key
-  mongodb_atlas_org_id      = var.mongodb_atlas_org_id
-
-  mongodb_atlas_database_username        = var.mongodb_atlas_database_username
-  mongodb_atlas_database_user_password   = var.mongodb_atlas_database_user_password
-}
