@@ -9,7 +9,6 @@ module "vpc" {
   project_id = var.project_id
   region     = var.region
   vpc_name   = "fitrang-vpc"
-  subnet_cidr = "10.0.0.0/24"
 }
 
 module "redis" {
@@ -30,6 +29,6 @@ module "bastion_vm" {
   project_id  = var.project_id
   zone        = var.zone
   network_id  = module.vpc.network_id
-  subnet_id   = module.vpc.subnet_id
+  subnet_id   = module.vpc.subnet_id.control
   vm_name     = "fitrang-bastion"
 }
