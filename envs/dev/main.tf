@@ -33,6 +33,15 @@ module "bastion_vm" {
   vm_name     = "fitrang-bastion"
 }
 
+module "kafka" {
+  source = "../../modules/kafka"
+
+  project_id        = var.project_id
+  region            = var.region
+  kafka_cluster_id  = "fitrang-kafka"
+  subnet_id         = module.vpc.subnet_id.data
+}
+
 module "firewall" {
   source = "../../modules/firewall"
 
