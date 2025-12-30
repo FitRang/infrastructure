@@ -32,3 +32,11 @@ module "bastion_vm" {
   subnet_id   = module.vpc.subnet_id.control
   vm_name     = "fitrang-bastion"
 }
+
+module "firewall" {
+  source = "../../modules/firewall"
+
+  project_id        = var.project_id
+  network_id        = module.vpc.network_id
+  ssh_source_ranges = ["49.37.169.217/32"]
+}

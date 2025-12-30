@@ -10,6 +10,7 @@ resource "google_redis_instance" "this" {
   tier           = "BASIC"
   memory_size_gb = 1
   authorized_network = var.network_id
+  auth_enabled = true
 }
 
 output "host" {
@@ -18,4 +19,9 @@ output "host" {
 
 output "port" {
   value = google_redis_instance.this.port
+}
+
+output "auth_string" {
+  value     = google_redis_instance.this.auth_string
+  sensitive = true
 }
