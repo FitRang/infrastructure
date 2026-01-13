@@ -21,7 +21,7 @@ module "redis" {
 
 module "bucket" {
   source = "../../modules/bucket"
-  bucket_name = "fitrang-dev-bucket"
+  location = var.region
 }
 
 module "bastion_vm" {
@@ -47,5 +47,5 @@ module "firewall" {
 
   project_id        = var.project_id
   network_id        = module.vpc.network_id
-  ssh_source_ranges = ["49.37.169.217/32"]
+  ssh_source_ranges = ["49.37.171.195/32"]
 }
